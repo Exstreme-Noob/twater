@@ -1,0 +1,86 @@
+:root
+{
+    --background: rgb(50, 50, 50);
+    --acent1: rgb(255, 200, 0);
+    --acent2: rgb(255, 0, 0);
+}
+body 
+{
+    font-family: Arial, sans-serif;
+    background-color: rgb(50, 50, 50);
+}
+.header_logo
+{
+    left: 1vw;
+    position: fixed;
+    height: 3vw;
+    width: auto;
+    top: 0;
+    left: 0;
+    margin: 0.2vw;
+}
+.header_logo:hover
+{
+    height: 3.2vw;
+    width:  auto;
+    margin: 0.1vw;
+}
+.pfp
+{
+    position: fixed;
+    height: 3vw;
+    width: auto;
+    right: 0;
+    top: 0;
+    border-radius: 100%;
+    margin: 0.2vw;
+}
+.pfp:hover
+{
+    height: 3.2vw;
+    width:  auto;
+    margin: 0.1vw;
+}
+.header_text
+{
+    position: fixed;
+    background-color: var(--acent2);
+    color:  var(--acent1);
+    font-size: 2em;
+    right: 0;
+    top: 0;
+    margin-top: 0.5vw;
+    margin-right: 5vw;
+}
+.header_text a
+{
+    background-color: var(--acent2);
+    color:  var(--acent1);
+    text-decoration: none;
+}
+.header 
+{
+    background-color: var(--acent1);
+    position: fixed;
+    height: 7vh;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+}
+.header_left
+{
+    position: fixed;
+    left: 0%;
+    top: 5px;
+    width: 50%;
+    height: 45px;
+}
+.header_right
+{
+    position: fixed;
+    left: 50%;
+    top: 5px;
+    width: 50%;
+    height: 45px;
+    
+}
