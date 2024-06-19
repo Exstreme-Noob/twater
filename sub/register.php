@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php include "../php/topbar.php"; topbar();?>
     <dvi class ="register">
         <form action="register.php" method="post">
             <label for="username">Username:</label><br>
@@ -19,7 +20,7 @@
             <input class="register_input" id="password" name="password" required type="password" /><br>
             <div class="register_buttons">
             <input class="register_send" name="register" type="submit" value="Register" />
-            <div class="register_login"><a href="./login">Login</a></div></divclass>
+            <div class="register_login"><a href="./login.php">Login</a></div></divclass>
         </form>
     </dvi>
 </body>

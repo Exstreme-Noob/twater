@@ -15,7 +15,7 @@ body {
 }
 
 .header {
-    position: sticky;
+    position: fixed;
     background-color: var(--yellow);
     width: 100% + 16px;
     height: 4vw;
@@ -30,7 +30,7 @@ body {
 }
 
 .header_left {
-    position: sticky;
+    position: fixed;
     float: left;
     width: 50%;
     height: 4vw;
@@ -79,7 +79,7 @@ body {
 
 
 .header_right {
-    position: sticky;
+    position: fixed;
     float: right;
     width: 50%;
     height: 4vw;
@@ -139,14 +139,15 @@ body {
 }
 
 .register {
-    font-size: 1vw;
+    font-size: 2vw;
     position: absolute;
     color: var(--maintext);
     background-color: var(--foreground);
-    width: 12vw;
-    left: 40%;
-    border: 2vw;
-    border-radius: 1vw;
+    width: 24vw;
+    left: 35%;
+    top: 10%;
+    border: 4vw;
+    border-radius: 2vw;
     border-style: solid;
     border-color: var(--foreground);
 }
@@ -159,35 +160,36 @@ body {
     border: none;
     color: var(--maintext);
     background-color: var(--background);
-    margin-top: 0.1vw;
+    margin-top: 0.2vw;
 }
 
 .register_input {
-    height: 1vw;
-    width: 10vw;
+    height: 2vw;
+    width: 20vw;
 }
 
 .register_login {
     float: left;
     border-style: solid;
-    width: 2.5vw;
-    height: 1vw;
+    width: 5vw;
+    height: 2vw;
     margin-left: 2vw;
     border-width: 0.5vw;
     border-color: var(--background);
     background-color: var(--background);
-    margin-top: 0.1vw;
+    margin-top: 0.25vw;
 }
 
 .register_send {
     float: left;
-    font-size: 1vw;
-    height: 2vw;
+    font-size: 2vw;
+    height: 3vw;
     width: auto;
 }
 
 .register_buttons {
-    height: 1vw;
+    margin-top: 1vw;
+    height: 1.5vw;
 }
 
 .register_buttons a {
