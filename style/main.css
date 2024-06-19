@@ -1,81 +1,196 @@
 :root {
+
+    --foreground: rgb(100, 100, 100);
     --background: rgb(76, 76, 76);
+    --maintext: rgb(255, 255, 255);
     --yellow: rgb(255, 200, 0);
     --red: rgb(255, 0, 0);
 }
 
 body {
+    color: var(--maintext);
+    text-decoration: none;
     background-color: var(--background);
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .header {
-    position: absolute;
+    position: sticky;
     background-color: var(--yellow);
-    width: 100%;
-    height: 6vw;
+    width: 100% + 16px;
+    height: 4vw;
     left: 0;
     top: 0;
+    margin: -8px;
+}
+
+.header a {
+    color: var(--yellow);
+    text-decoration: none;
 }
 
 .header_left {
+    position: sticky;
+    float: left;
     width: 50%;
-    height: 6vw;
+    height: 4vw;
     left: 0;
 }
+
 .header_logo {
-    height: 4vw;
-    width: 4vw;
+    float: left;
+    height: 3vw;
+    width: 3vw;
     right: 0;
     top: 0;
-    margin: 1vw;
+    margin: 0.5vw;
 }
+
 .header_logo img {
-    height: 4vw;
-    width: 4vw;
-    right: 0;
-    top: 0;
-    margin: 1vw;
+    height: 3vw;
+    width: 3vw;
 }
+
+.header_logo img:hover {
+    height: 3.2vw;
+    width: 3.2vw;
+    margin: -0.1vw;
+}
+
 .header_like {
-    height: 4vw;
-    width: 4vw;
+    float: left;
+    height: 3vw;
+    width: 3vw;
     right: 0;
     top: 0;
-    margin: 1vw;
+    margin: 0.5vw;
 }
+
 .header_like img {
-    height: 4vw;
-    width: 4vw;
-    right: 0;
-    top: 0;
-    margin: 1vw;
+    height: 3vw;
+    width: 3vw;
+}
+
+.header_like img:hover {
+    height: 3.2vw;
+    width: 3.2vw;
+    margin: -0.1vw;
 }
 
 
 .header_right {
+    position: sticky;
+    float: right;
     width: 50%;
-    height: 6vw;
+    height: 4vw;
     right: 0;
 }
+
 .header_pfp {
-    height: 4vw;
-    width: 4vw;
+    float: right;
+    height: 3vw;
+    width: 3vw;
     right: 0;
     top: 0;
-    margin: 1vw;
+    margin: 0.5vw;
+    margin-top: 0.3vw;
+    margin-right: 1vw;
 }
+
 .header_pfp img {
-    height: 4vw;
-    width: 4vw;
+    height: 3vw;
+    width: 3vw;
     right: 0;
     top: 0;
-    margin: 1vw;
+    border: 0.2vw;
+    border-color: var(--red);
+    border-style: solid;
+    border-radius: 100%;
 }
+
+.header_pfp img:hover {
+    height: 3.2vw;
+    width: 3.2vw;
+    margin: 0.1vw;
+    border: 0vw;
+    border-style: hidden;
+
+}
+
 .header_impressum {
-    height: 4vw;
-    width: 4vw;
+    font-size: 1.8vw;
+    float: right;
+    height: 2vw;
+    width: 9vw;
     right: 0;
     top: 0;
-    margin: 1vw;
+    margin: 0.5vw;
+    margin-top: 1vw;
+    background-color: var(--red);
+    border: 0.2vw;
+    border-color: var(--red);
+    border-style: solid;
+}
+
+.header_impressum:hover {
+    border-width: 0.3vw;
+    margin: 0.4vw;
+    margin-top: 0.9vw;
+}
+
+.register {
+    font-size: 1vw;
+    position: absolute;
+    color: var(--maintext);
+    background-color: var(--foreground);
+    width: 12vw;
+    left: 40%;
+    border: 2vw;
+    border-radius: 1vw;
+    border-style: solid;
+    border-color: var(--foreground);
+}
+
+.register form {
+    margin-left: 8%;
+}
+
+.register input {
+    border: none;
+    color: var(--maintext);
+    background-color: var(--background);
+    margin-top: 0.1vw;
+}
+
+.register_input {
+    height: 1vw;
+    width: 10vw;
+}
+
+.register_login {
+    float: left;
+    border-style: solid;
+    width: 2.5vw;
+    height: 1vw;
+    margin-left: 2vw;
+    border-width: 0.5vw;
+    border-color: var(--background);
+    background-color: var(--background);
+    margin-top: 0.1vw;
+}
+
+.register_send {
+    float: left;
+    font-size: 1vw;
+    height: 2vw;
+    width: auto;
+}
+
+.register_buttons {
+    height: 1vw;
+}
+
+.register_buttons a {
+    text-decoration: none;
+    color: var(--maintext);
 }
