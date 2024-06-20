@@ -14,16 +14,18 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.topbar {
+.header {
     position: fixed;
-    background-color: var(--yellow);
-    width: 100% + 16px;
-    height: 4vw;
     left: 0;
     top: 0;
-    margin: -8px;
+    box-sizing: content-box;
+    size: 100px;
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    background: fixed;
+    background-color: var(--yellow);
 }
-
 .header a {
     color: var(--yellow);
     text-decoration: none;
