@@ -1,7 +1,7 @@
 <?php
 function topbar()
 {
-    echo "<div class=\"header\">
+    echo "<div class=\"topbar\">
         <div class=\"header_left\">
             <div class=\"header_logo\"><a href=\"#\"><img src=\"./img/zwitscher_simple_logo0.png\"alt=\"Logo\"></a></div>
             <div class=\"header_like\"><a href=\"#\"><img src=\"./img/like.png\" alt=\"Like\"></a></div>
