@@ -19,13 +19,13 @@ body {
     left: 0;
     top: 0;
     box-sizing: content-box;
-    size: 100vw;
-    width: 100px;
-    height: 100px;
+    width: 100vw;
+    height: 4vw;
     margin: 0;
     background: fixed;
     background-color: var(--yellow);
 }
+
 .header a {
     color: var(--yellow);
     text-decoration: none;
@@ -197,4 +197,42 @@ body {
 .register_buttons a {
     text-decoration: none;
     color: var(--maintext);
+}
+
+.zwicher {
+    width: 45vw;
+    height: auto;
+    margin-top: 4vw;
+    background-color: var(--foreground);
+    border-radius: 1vw;
+    border-style: solid;
+    border-color: var(--foreground);
+    margin-left: 25vw;
+}
+
+.zwicher_userpfp {
+    height: 3vw;
+    width: auto;
+    font-size: 1.8vw;
+}
+
+.zwicher_userpfp img {
+    height: 3vw;
+    width: 3vw;
+    border-radius: 100vw;
+    margin-left: 0.5vw;
+    margin-top: 0.5vw;
+}
+
+.zwicher_content {
+    margin-left: 0.5vw;
+    font-size: 1.8vw;
+    width: 44vw;
+    height: auto;
+}
+
+.zwicher_content img {
+    width: 39vw;
+    height: auto;
+    margin-left: 0.5vw;
 }
