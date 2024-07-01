@@ -124,7 +124,7 @@ body {
     float: right;
     height: 2vw;
     width: 9vw;
-    right: 0;
+    right: 5vw;
     top: 0;
     margin: 0.5vw;
     margin-top: 1vw;
@@ -135,6 +135,27 @@ body {
 }
 
 .header_impressum:hover {
+    border-width: 0.3vw;
+    margin: 0.4vw;
+    margin-top: 0.9vw;
+}  
+
+.header_logout {
+    font-size: 1.8vw;
+    float: right;
+    height: 2vw;
+    width: 9vw;
+    right: 0;
+    top: 0;
+    margin: 0.5vw;
+    margin-top: 1vw;
+    background-color: var(--red);
+    border: 0.2vw;
+    border-color: var(--red);
+    border-style: solid;
+}
+
+.header_logout:hover {
     border-width: 0.3vw;
     margin: 0.4vw;
     margin-top: 0.9vw;
