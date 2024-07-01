@@ -11,6 +11,7 @@
 <body>
     <?php include "./php/functions.php";
     session_start();
+    if($_SESSION["user"]==null){$_SESSION["user"]=null;}
     topbar($_SESSION["user"]);
     zwicher("thomas","Uranium enrichment 
     is a complex process used to increase the pr

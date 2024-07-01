@@ -9,8 +9,9 @@
 </head>
 
 <body>
-    <?php include "./php/functions.php"; 
-    topbar($_SESSION["users"]);;?>
+    <?php include "./php/functions.php";
+    session_start(); 
+    topbar($_SESSION["user"]);;?>
     <dvi class ="register">
         <form action="./handle_register.php" method="post">
             <label for="username">Username:</label><br>
