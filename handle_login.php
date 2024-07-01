@@ -13,8 +13,8 @@
     <?php include "./php/functions.php";
     include 'db.php';
     session_start();
-    if (isset($_POST["username"])) {
-        $username = $_POST['username'];
+    if (isset($_POST["name"])) {
+        $username = $_POST['name'];
         $password = $_POST['password'];
 
         $result = getPassword($username);

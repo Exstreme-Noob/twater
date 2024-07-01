@@ -138,7 +138,7 @@ body {
     border-width: 0.3vw;
     margin: 0.4vw;
     margin-top: 0.9vw;
-}  
+}
 
 .header_logout {
     font-size: 1.8vw;
@@ -220,6 +220,65 @@ body {
     color: var(--maintext);
 }
 
+.login {
+    font-size: 2vw;
+    position: absolute;
+    color: var(--maintext);
+    background-color: var(--foreground);
+    width: 24vw;
+    left: 35%;
+    top: 10%;
+    border: 4vw;
+    border-radius: 2vw;
+    border-style: solid;
+    border-color: var(--foreground);
+}
+
+.login form {
+    margin-left: 8%;
+}
+
+.login input {
+    border: none;
+    color: var(--maintext);
+    background-color: var(--background);
+    margin-top: 0.2vw;
+}
+
+.login_input {
+    height: 2vw;
+    width: 20vw;
+}
+
+.login_register {
+    float: left;
+    border-style: solid;
+    width: 7.5vw;
+    height: 2vw;
+    margin-left: 2vw;
+    border-width: 0.5vw;
+    border-color: var(--background);
+    background-color: var(--background);
+    margin-top: 0.25vw;
+}
+
+.login_send {
+    float: left;
+    font-size: 2vw;
+    height: 3vw;
+    width: auto;
+}
+
+.login_buttons {
+    margin-top: 1vw;
+    height: 1.5vw;
+}
+
+.login_buttons a {
+    text-decoration: none;
+    color: var(--maintext);
+}
+
 .zwicher {
     width: 45vw;
     height: auto;
@@ -255,5 +314,5 @@ body {
 .zwicher_content img {
     width: 39vw;
     height: auto;
-    margin-left: 0.5vw;
+    margin-left: 2.5vw;
 }

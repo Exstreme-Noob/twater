@@ -9,9 +9,10 @@
 </head>
 
 <body>
-    <?php include "./php/functions.php"; topbar();?>
+    <?php include "./php/functions.php"; 
+    topbar($_SESSION["users"]);;?>
     <dvi class ="register">
-        <form action="register.php" method="post">
+        <form action="./handle_register.php" method="post">
             <label for="username">Username:</label><br>
             <input class="register_input" id="username" name="username" required type="text" /><br>
             <label for="email">Email:</label><br>

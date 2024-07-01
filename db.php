@@ -4,8 +4,8 @@ function connectDB()
 {
     $servername = "localhost";
     $username = "root";
-    $password = "passwort";
-    $dbname = "twater";
+    $password = "";
+    $dbname = "zwitscher";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
@@ -32,32 +32,32 @@ function getSQLQuery($sql, $params = [])
 
 function insertUser($user, $email, $password)
 {
-    $sql = "INSERT INTO user (username, email, password) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
     $params = ['sss', $user, $email, $password];
     return getSQLQuery($sql, $params);
 }
 
 function getUser($user)
 {
-    $sql = "SELECT * FROM user WHERE name = ?";
+    $sql = "SELECT * FROM users WHERE name = ?";
     return getSQLQuery($sql, ['s', $user]);
 }
 
 function getEmail($email)
 {
-    $sql = "SELECT * FROM user WHERE email = ?";
+    $sql = "SELECT * FROM users WHERE email = ?";
     return getSQLQuery($sql, ['s', $email]);
 }
 
 function getPassword($user)
 {
-    $sql = "SELECT password FROM user WHERE username = ?";
+    $sql = "SELECT password FROM users WHERE name = ?";
     return getSQLQuery($sql, ['s', $user]);
 }
 
 function getAllUser()
 {
-    $sql = "SELECT * FROM user";
+    $sql = "SELECT * FROM users";
     return getSQLQuery($sql);
 }
 ?>

@@ -11,6 +11,7 @@
 <body>
     <a href="index.php" >Startseite</a>
     <?php include "./php/functions.php";
+    topbar($_SESSION["users"]);
     ?>  
      <div class ="login">
         <form action="./handle_login.php" method="post">
