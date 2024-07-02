@@ -1,7 +1,5 @@
 <?php
-
-function connectDB()
-{
+function connectDB(){
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -62,7 +60,6 @@ function getAllUser()
 }
 function getUserID($user)
 {
-    $sql = "SELECT uid FROM users WHERE name = $user";
-    return getSQLQuery($sql);
+    $sql = "SELECT uid FROM users WHERE name = ?";
+    return mysqli_fetch_array(getSQLQuery($sql,['s', $user]))[0];
 }
-?>

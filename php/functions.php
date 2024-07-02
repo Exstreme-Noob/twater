@@ -33,7 +33,7 @@ function zwicher($user, $content, $media)
     <div class="zwicher">
         <div class="zwicher_userpfp">
             <img src="<?php echo getuserpfp($user); ?>" alt="error">
-            <div><?php echo $user ?></div><div class="uid"><?php getUserID($user);?></div>
+            <div class="zwicher_user"><?php echo $user ?><div class="zwicher_uid"><?php echo getUserID($user);?></div></div>
         </div>
         <div class="zwicher_content">
             <p><?php echo $content ?></p>

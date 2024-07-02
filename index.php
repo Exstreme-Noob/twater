@@ -11,10 +11,11 @@
 <body>
     <?php 
     include "./php/functions.php";
-    include "./php/db.php";
     session_start();
     if($_SESSION["user"]==null){$_SESSION["user"]=null;}
-    topbar($_SESSION["user"]);
+    topbar($_SESSION["user"]);?>
+    <div class="content">
+    <?php
     zwicher("thomas","Uranium enrichment 
     is a complex process used to increase the pr
     oportion of the uranium-235 isotope in uranium.
@@ -25,8 +26,9 @@
       nuclear chain reaction, which is necessary for b
       oth nuclear reactors and nuclear weapons. Here’s 
       an overview of how uranium enrichment works:","./img/zwitscher_logo1.png");
-    zwicher("thomas","tchuss","https://imgs.search.brave.com/Xw3NFxb1mDLhRHiFwZ6y4pqYJMU3dRW84i1nhdwXG8Q/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY3RmYXNzZXRz/Lm5ldC9ocmx0eDEy/cGw4aHEvNTU5Nnoy/QkNSOUttVDFLZVJC/ck9RYS80MDcwZmQ0/ZTJmMWExM2Y3MWMy/YzQ2YWZlYjE4ZTQx/Yy9zaHV0dGVyc3Rv/Y2tfNDUxMDc3MDQz/LWhlcm8xLmpwZz9m/aXQ9ZmlsbCZ3PTYw/MCZoPTEyMDA");
+    zwicher("mahmud","tchuss","https://imgs.search.brave.com/Xw3NFxb1mDLhRHiFwZ6y4pqYJMU3dRW84i1nhdwXG8Q/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY3RmYXNzZXRz/Lm5ldC9ocmx0eDEy/cGw4aHEvNTU5Nnoy/QkNSOUttVDFLZVJC/ck9RYS80MDcwZmQ0/ZTJmMWExM2Y3MWMy/YzQ2YWZlYjE4ZTQx/Yy9zaHV0dGVyc3Rv/Y2tfNDUxMDc3MDQz/LWhlcm8xLmpwZz9m/aXQ9ZmlsbCZ3PTYw/MCZoPTEyMDA");
     ?>  
+    </div>
 </body>
 
 </html>
