@@ -11,21 +11,22 @@
 <body>
     <a href="index.php" >Startseite</a>
     <?php include "./php/functions.php";
-    include './php/db.php';
     session_start();
-    if (isset($_POST["username"])) {
-        $username = $_POST['username'];
+    if (isset($_POST["email"])) {
+        $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $result = getPassword($username);
+        $result = getPassword($email);
         
 
         if ($result->num_rows == 0) {
-            echo "Benutzername für $username nicht gefunden";
+            echo "Benutzername für $email nicht gefunden";
         } else {
             $row = $result->fetch_assoc();
             if ($password == $row['password']) {
-                $_SESSION['user'] = $username;
+                $_SESSION['email'] = $email;
+                $_SESSION['uid']= getUserID($email);
+                $_SESSION['user']=getUserName($_SESSION['uid']);
                 header("Location: index.php");
             } else {
                 echo "Authentifizierung fehlgeschlagen <br>";

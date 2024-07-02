@@ -47,10 +47,10 @@ function getEmail($email)
     return getSQLQuery($sql, ['s', $email]);
 }
 
-function getPassword($user)
+function getPassword($email)
 {
-    $sql = "SELECT password FROM users WHERE name = ?";
-    return getSQLQuery($sql, ['s', $user]);
+    $sql = "SELECT password FROM users WHERE email = ?";
+    return getSQLQuery($sql, ['s', $email]);
 }
 
 function getAllUser()
@@ -58,8 +58,14 @@ function getAllUser()
     $sql = "SELECT * FROM users";
     return getSQLQuery($sql);
 }
-function getUserID($user)
+
+function getUserName($uid)
 {
-    $sql = "SELECT uid FROM users WHERE name = ?";
-    return mysqli_fetch_array(getSQLQuery($sql,['s', $user]))[0];
+    $sql = "SELECT name FROM users WHERE uid = ?";
+    return mysqli_fetch_array(getSQLQuery($sql,['s', $uid]))[0];
+}
+function getUserID($email)
+{
+    $sql = "SELECT uid FROM users WHERE email = ?";
+    return mysqli_fetch_array(getSQLQuery($sql,['s', $email]))[0];
 }

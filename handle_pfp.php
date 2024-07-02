@@ -41,7 +41,7 @@ if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-  if (move_uploaded_file($_FILES["pfp"]["tmp_name"], "./pfp/".$_SESSION['user'].".".$imageFileType)) {
+  if (move_uploaded_file($_FILES["pfp"]["tmp_name"], "./pfp/".$_SESSION['uid'].".".$imageFileType)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["pfp"]["name"])). " has been uploaded.";
     header("Location index.php");
   } else {

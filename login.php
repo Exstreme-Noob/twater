@@ -12,12 +12,12 @@
     <a href="index.php" >Startseite</a>
     <?php include "./php/functions.php";
     session_start();
-    topbar($_SESSION["user"]);
+    topbar($_SESSION["uid"]);
     ?>  
      <div class ="login">
         <form action="./handle_login.php" method="post">
-            <label for="username">Username:</label><br>
-            <input class="login_input" id="username" name="username" required type="text" /><br>
+            <label for="email">E-mail:</label><br>
+            <input class="login_input" id="email" name="email" required type="email" /><br>
             <label for="password">Password:</label><br>
             <input class="login_input" id="password" name="password" required type="password" /><br>
             <div class="login_buttons">

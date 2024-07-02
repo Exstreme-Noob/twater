@@ -18,7 +18,7 @@ if ($_SESSION['user'] != null) {
         topbar($_SESSION['user']);
         ?>
         <div class="profile_main">
-            <img src="<?php echo getuserpfp($_SESSION['user']); ?>" alt="error">
+            <img src="<?php echo getuserpfp($_SESSION['uid']); ?>" alt="error">
             <?php echo $_SESSION['user'] ?>
         </div>
         <div class="pfp_uplad">
