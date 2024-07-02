@@ -11,7 +11,7 @@
 <body>
     <a href="index.php" >Startseite</a>
     <?php include "./php/functions.php";
-    include 'db.php';
+    include './php/db.php';
     session_start();
     if (isset($_POST["username"])) {
         $username = $_POST['username'];

@@ -60,4 +60,9 @@ function getAllUser()
     $sql = "SELECT * FROM users";
     return getSQLQuery($sql);
 }
+function getUserID($user)
+{
+    $sql = "SELECT uid FROM users WHERE name = $user";
+    return getSQLQuery($sql);
+}
 ?>

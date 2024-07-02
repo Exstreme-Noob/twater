@@ -9,7 +9,9 @@
 </head>
 
 <body>
-    <?php include "./php/functions.php";
+    <?php 
+    include "./php/functions.php";
+    include "./php/db.php";
     session_start();
     if($_SESSION["user"]==null){$_SESSION["user"]=null;}
     topbar($_SESSION["user"]);

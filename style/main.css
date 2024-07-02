@@ -315,3 +315,15 @@ body {
     height: auto;
     margin-left: 2.5vw;
 }
+.profile_main{
+font-size: 3vw;
+left: 0;
+top: 0;
+margin-top: 3vw;
+margin-left: 0.5vw;
+}
+.profile_main img{
+    height: 5vw;
+    width: 5vw;
+    border-radius: 100%;
+}
