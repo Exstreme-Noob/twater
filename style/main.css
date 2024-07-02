@@ -343,3 +343,22 @@ margin-left: 0.5vw;
     width: 5vw;
     border-radius: 100%;
 }
+/* width */
+::-webkit-scrollbar {
+    width: 0.5vw;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--foreground);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--red);
+  }
