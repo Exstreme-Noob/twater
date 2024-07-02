@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2024 at 10:37 AM
+-- Generation Time: Jul 02, 2024 at 11:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -53,17 +53,17 @@ CREATE TABLE `users` (
   `uid` int(11) NOT NULL,
   `name` text NOT NULL,
   `email` text NOT NULL,
-  `password` text NOT NULL,
-  `pfp` longblob NOT NULL
+  `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`uid`, `name`, `email`, `password`, `pfp`) VALUES
-(1, 'thomas', 'thomas@hamsmail.de', 'thomas', ''),
-(2, 'mahmud', 'sadam@husain.911', '911', '');
+INSERT INTO `users` (`uid`, `name`, `email`, `password`) VALUES
+(1, 'thomas', 'thomas@hamsmail.de', 'thomas'),
+(2, 'mahmud', 'sadam@husain.911', '911'),
+(3, 'thomas', 'sadam@husain.ae', '123');
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,7 @@ ALTER TABLE `zwicherts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `zwicherts`
