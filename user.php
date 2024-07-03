@@ -19,9 +19,9 @@ if ($_SESSION['user'] != null) {
         ?>
         <div class="profile_main">
             <img src="<?php echo getuserpfp($_SESSION['uid']); ?>" alt="error">
-            <?php echo $_SESSION['user']; ?>
+            <?php echo $_SESSION['user']
+            ?><div class="eddit_profile_button"><a href="eddit_profile.php">Eddit Profile</a></div>
         </div>
-        <div class="eddit_profile_button"><a href="eddit_profile.php">Eddit Profile</a></div>
     </body>
     <?php
 } else {
