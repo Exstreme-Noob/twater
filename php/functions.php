@@ -25,29 +25,50 @@ function topbar($user = null)
         </div>
     </div>
     <br>
+    <br>
     <?php
 }
 function zwicher($uid, $content, $media)
 {
     $user= getUserName($uid);
+    if($user!=null){
     ?>
     <div class="zwicher">
         <div class="zwicher_userpfp">
             <img src="<?php echo getuserpfp($uid); ?>" alt="error">
-            <div class="zwicher_user"><?php echo $user ?><div class="zwicher_uid"><?php echo $uid;?></div></div>
+            <div class="zwicher_user"><?php echo $user ?><div class="zwicher_uid">ID:<?php echo $uid;?></div></div>
         </div>
         <div class="zwicher_content">
             <p><?php echo $content ?></p>
-            <img src="<?php echo $media ?>">
+            <?php if($media!=null){ ?><img src="<?php echo $media ?>"><?php } ?>
         </div>
     </div>
-    <?php
+    <?php }else{
+        ?> <p class="error">!!!user doesnt exist!!!</p> <?php
+    }
 }
 function getuserpfp($uid)
 {
-    if (file_exists("./pfp/$uid.png")) {
-        return "./pfp/$uid.png";
+    if (file_exists("./pfp/$uid.gif")) {
+        return "./pfp/$uid.gif";
     } else {
-        return "./img/defult_pfp.png";
+        return "./img/defult_pfp.gif";
+    }
+}
+function content()
+{
+    $sql = "SELECT COUNT(*) FROM zwicherts";
+    $allposts = mysqli_fetch_array(getSQLQuery($sql))[0];
+    for($i=0;$i<$allposts;$i++)
+    {
+        $zid=$i+1;
+        $sql = "SELECT * FROM zwicherts WHERE zid = $zid";
+        $zwichercontent = mysqli_fetch_array(getSQLQuery($sql));
+        $sql = "SELECT uid FROM relation WHERE zid = $zid";
+        $relation = mysqli_fetch_array(getSQLQuery($sql));
+        $content = $zwichercontent["text"];
+        $media = $zwichercontent["media"];
+        $uid = &$relation["uid"];
+        zwicher($uid,$content,$media);
     }
 }

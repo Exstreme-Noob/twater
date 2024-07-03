@@ -19,15 +19,9 @@ if ($_SESSION['user'] != null) {
         ?>
         <div class="profile_main">
             <img src="<?php echo getuserpfp($_SESSION['uid']); ?>" alt="error">
-            <?php echo $_SESSION['user'] ?>
+            <?php echo $_SESSION['user']; ?>
         </div>
-        <div class="pfp_uplad">
-        <form action="./handle_pfp.php" method="post" enctype="multipart/form-data">
-        <label for="pfp">Profile Picture:</label><br>
-        <input class="pfp_input" id="pfp" name="pfp" required type="file"/><br>
-        <input class="pfp_send" name="pfp_submit" type="submit" value="Upload" /><br>
-        </form>
-        </div>
+        <div class="eddit_profile_button"><a href="eddit_profile.php">Eddit Profile</a></div>
     </body>
     <?php
 } else {

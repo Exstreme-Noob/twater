@@ -16,8 +16,11 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         $email = $_POST['email'];
-
+        if(getEmail($email)->num_rows == 0){
         insertUser($username,$email,$password);
+        }else{
+            echo "<br> $email already registerd";
+        }
     }
 ?>
 </body>

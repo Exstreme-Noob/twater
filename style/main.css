@@ -7,6 +7,13 @@
     --red: rgb(255, 0, 0);
 }
 
+.error {
+    color: var(--red);
+    background-color: var(--maintext);
+    text-align: center;
+    text-decoration: underline;
+}
+
 body {
     color: var(--maintext);
     text-decoration: none;
@@ -154,6 +161,7 @@ body {
     border-color: var(--red);
     border-style: solid;
 }
+
 .header_logout:hover {
     border-width: 0.3vw;
     margin: 0.4vw;
@@ -277,7 +285,8 @@ body {
     text-decoration: none;
     color: var(--maintext);
 }
-.content{
+
+.content {
     width: 45vw;
     height: auto;
     margin-top: 4vw;
@@ -307,18 +316,22 @@ body {
     margin-left: 0.5vw;
     margin-top: 0.5vw;
 }
-.zwicher_user{
-top: 0;
-left: 0;
-margin-top: -3.5vw;
-margin-left: 4vw;
+
+.zwicher_user {
+    top: 0;
+    left: 0;
+    margin-top: -3.5vw;
+    margin-left: 4vw;
 }
-.zwicher_uid{
+
+.zwicher_uid {
     top: 0;
     left: 0;
     color: var(--background);
     font-size: 1vw;
+    font-style: italic;
 }
+
 .zwicher_content {
     margin-left: 0.5vw;
     font-size: 1.8vw;
@@ -331,34 +344,37 @@ margin-left: 4vw;
     height: auto;
     margin-left: 2.5vw;
 }
-.profile_main{
-font-size: 3vw;
-left: 0;
-top: 0;
-margin-top: 3vw;
-margin-left: 0.5vw;
+
+.profile_main {
+    font-size: 3vw;
+    left: 0;
+    top: 0;
+    margin-top: 3vw;
+    margin-left: 0.5vw;
 }
-.profile_main img{
+
+.profile_main img {
     height: 5vw;
     width: 5vw;
     border-radius: 100%;
 }
+
 /* width */
 ::-webkit-scrollbar {
-    width: 0.5vw;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+    width: 0.8vw;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background: var(--background);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: var(--foreground);
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: var(--red);
-  }
+}
