@@ -17,7 +17,8 @@ function topbar($user = null)
         <?php } else {
             ?>
             <div class="header_right">
-                <div class="header_pfp"> <a href="./user.php"><img src="<?php echo getuserpfp($_SESSION['uid']) ?>" alt="pfp"></a></div>
+                <div class="header_pfp"> <a href="./user.php"><img src="<?php echo getuserpfp($_SESSION['uid']) ?>"
+                            alt="pfp"></a></div>
                 <div class="header_impressum"><a href="#">Impressum</a></div>
                 <div class="header_logout"><a href="handle_logout.php">Logout</a></div>
             <?php }
@@ -30,21 +31,25 @@ function topbar($user = null)
 }
 function zwicher($uid, $content, $media)
 {
-    $user= getUserName($uid);
-    if($user!=null){
-    ?>
-    <div class="zwicher">
-        <div class="zwicher_userpfp">
-            <img src="<?php echo getuserpfp($uid); ?>" alt="error">
-            <div class="zwicher_user"><?php echo $user ?><div class="zwicher_uid">ID:<?php echo $uid;?></div></div>
+    $user = getUserName($uid);
+    if ($user != null) {
+        ?>
+        <div class="zwicher">
+            <div class="zwicher_userpfp">
+                <img src="<?php echo getuserpfp($uid); ?>" alt="error">
+                <div class="zwicher_user"><?php echo $user ?>
+                    <div class="zwicher_uid">ID:<?php echo $uid; ?></div>
+                </div>
+            </div>
+            <div class="zwicher_content">
+                <p><?php echo $content ?></p>
+                <?php if ($media != null) { ?><img src="<?php echo $media ?>"></img><?php } ?>
+            </div>
         </div>
-        <div class="zwicher_content">
-            <p><?php echo $content ?></p>
-            <?php if($media!=null){ ?><img src="<?php echo $media ?>"><?php } ?>
-        </div>
-    </div>
-    <?php }else{
-        ?> <p class="error">!!!user doesnt exist!!!</p> <?php
+    <?php } else {
+        ?>
+        <p class="error">!!!user doesnt exist!!!</p>
+        <?php
     }
 }
 function getuserpfp($uid)
@@ -59,9 +64,8 @@ function content()
 {
     $sql = "SELECT COUNT(*) FROM zwicherts";
     $allposts = mysqli_fetch_array(getSQLQuery($sql))[0];
-    for($i=0;$i<$allposts;$i++)
-    {
-        $zid=$i+1;
+    for ($i = 0; $i < $allposts; $i++) {
+        $zid = $i + 1;
         $sql = "SELECT * FROM zwicherts WHERE zid = $zid";
         $zwichercontent = mysqli_fetch_array(getSQLQuery($sql));
         $sql = "SELECT uid FROM relation WHERE zid = $zid";
@@ -69,6 +73,41 @@ function content()
         $content = $zwichercontent["text"];
         $media = $zwichercontent["media"];
         $uid = &$relation["uid"];
-        zwicher($uid,$content,$media);
+        zwicher($uid, $content, $media);
+    }
+}
+function content_from($_uid)
+{
+    $sql = "SELECT COUNT(*) FROM zwicherts Z INNER JOIN relation R ON R.zid=Z.zid";
+    $allposts = mysqli_fetch_array(getSQLQuery($sql));
+    $sql = "SELECT `zid` FROM zwicherts Z INNER JOIN relation R ON R.zid=Z.zid";
+    $zids = mysqli_fetch_array(getSQLQuery($sql));
+    echo var_dump($zids);
+        for ($i = 0; $i < $allposts[0]; $i++) {
+        $zid = $zids[$i];
+        $sql = "SELECT * FROM zwicherts WHERE zid = $zid";
+        $zwichercontent = mysqli_fetch_array(getSQLQuery($sql));
+        $sql = "SELECT uid FROM relation WHERE zid = $zid";
+        $relation = mysqli_fetch_array(getSQLQuery($sql));
+        $content = $zwichercontent["text"];
+        $media = $zwichercontent["media"];
+        $uid = &$relation["uid"];
+        zwicher($uid, $content, $media);
+    }
+}
+function content_liked($_uid)
+{
+    $sql = "SELECT COUNT(*) FROM zwicherts";
+    $allposts = mysqli_fetch_array(getSQLQuery($sql))[0];
+    for ($i = 0; $i < $allposts; $i++) {
+        $zid = $i + 1;
+        $sql = "SELECT * FROM zwicherts WHERE zid = $zid";
+        $zwichercontent = mysqli_fetch_array(getSQLQuery($sql));
+        $sql = "SELECT uid FROM relation WHERE zid = $zid";
+        $relation = mysqli_fetch_array(getSQLQuery($sql));
+        $content = $zwichercontent["text"];
+        $media = $zwichercontent["media"];
+        $uid = &$relation["uid"];
+        zwicher($uid, $content, $media);
     }
 }

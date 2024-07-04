@@ -18,12 +18,12 @@
     <div class="eddit_profile">
         <div class="pfp_uplad">
             <form action="./handle_pfp.php" method="post" enctype="multipart/form-data">
-                <label for="pfp">Profile Picture:</label><br>
+                <label for="pfp">Change Profile Picture:</label><br>
                 <input class="pfp_input" id="pfp" name="pfp" required type="file" /><br>
                 <input class="pfp_send" name="pfp_submit" type="submit" value="Upload" /><br>
             </form>
         </div>
-        <form action="./handle_eddit_profile.php" method="post" enctype="multipart/form-data">
+        <form class="edit" action="./handle_eddit_profile.php" method="post" enctype="multipart/form-data">
             <div class="eddit_name">
                 <label for="name">Change Name:</label><br>
                 <input class="name_input" id="name" name="name" type="text" /><br>

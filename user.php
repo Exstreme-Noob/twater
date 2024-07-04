@@ -23,6 +23,7 @@ if ($_SESSION['user'] != null) {
             <div class="profile_uid">
             <?php echo "id:".$_SESSION['uid'] ?></div>
             <div class="eddit_profile_button"><a href="eddit_profile.php">Edit Profile</a></div>
+            <?php content_from($_SESSION["uid"]); ?>
         </div>
     </body>
     <?php

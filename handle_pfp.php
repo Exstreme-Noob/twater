@@ -1,4 +1,8 @@
-<?php
+
+<body>
+  
+<a href="index.php">Startseite</a>
+<br><?php
 session_start();
 $target_dir = "pfp/";
 $target_file = $target_dir . basename($_FILES["pfp"]["name"]);
@@ -42,9 +46,11 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["pfp"]["tmp_name"], "./pfp/".$_SESSION['uid'].".gif")) {
+    header("Location: user.php");
     echo "The file ". htmlspecialchars( basename( $_FILES["pfp"]["name"])). " has been uploaded.";
-    header("Location index.php");
+    die();
   } else {
     echo "<p class=\"error\">Sorry, there was an error uploading your file.</p>";
   }
-}
+}?>
+</body>
