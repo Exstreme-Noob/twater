@@ -10,7 +10,7 @@
         $_SESSION["uid"] = null;
         header('Location:index.php');
     }
-    ?>  
+    ?>  grgf
 </body>
 
 </html>
