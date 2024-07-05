@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2024 at 11:10 AM
+-- Generation Time: Jul 05, 2024 at 12:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,6 +43,13 @@ CREATE TABLE `relation` (
   `zid` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `relation`
+--
+
+INSERT INTO `relation` (`uid`, `zid`) VALUES
+(1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -61,7 +68,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `name`, `email`, `password`) VALUES
-(1, 'thomas', 'thomas@hamsmail.de', 'thomas'),
+(1, 'sadam', 'thomas@hamsmail.de', 'thomas'),
 (2, 'mahmud', 'sadam@husain.911', '911'),
 (3, 'thomas', 'sadam@husain.ae', '123');
 
@@ -76,6 +83,13 @@ CREATE TABLE `zwicherts` (
   `text` text NOT NULL,
   `media` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `zwicherts`
+--
+
+INSERT INTO `zwicherts` (`zid`, `text`, `media`) VALUES
+(1, 'Legalize nuclear bombs', './postmedia/1.gif');
 
 --
 -- Indexes for dumped tables
@@ -107,7 +121,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `zwicherts`
 --
 ALTER TABLE `zwicherts`
-  MODIFY `zid` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `zid` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
