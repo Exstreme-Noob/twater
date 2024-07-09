@@ -355,8 +355,8 @@ body {
 }
 
 .profile_main img {
-    height: 5vw;
-    width: 5vw;
+    height: 6vw;
+    width: 6vw;
     border-radius: 100%;
 }
 
@@ -425,7 +425,11 @@ body {
 .eddit_send{
     margin-top: 1vw;
 }
-
+.liked_head{
+    margin-top: 5vw;
+    font-size: 2vw;
+    margin-bottom: -5vw;
+}
 /* width */
 ::-webkit-scrollbar {
     width: 0.8vw;

@@ -5,7 +5,7 @@ function topbar($user = null)
     <div class="header">
         <div class="header_left">
             <div class="header_logo"><a href="./index.php"><img src="./img/zwitscher_simple_logo0.png" alt="Logo"></a></div>
-            <div class="header_like"><a href="#"><img src="./img/like.png" alt="Like"></a></div>
+            <div class="header_like"><a href="./liked.php"><img src="./img/like.png" alt="Like"></a></div>
         </div>
         <?php
         if (is_null($user)) {
@@ -21,6 +21,7 @@ function topbar($user = null)
                             alt="pfp"></a></div>
                 <div class="header_impressum"><a href="#">Impressum</a></div>
                 <div class="header_logout"><a href="handle_logout.php">Logout</a></div>
+
             <?php }
         ?>
         </div>
@@ -80,9 +81,8 @@ function content_from($_uid)
 {
     $sql = "SELECT COUNT(*) FROM zwicherts Z INNER JOIN relation R ON R.zid=Z.zid";
     $allposts = mysqli_fetch_array(getSQLQuery($sql));
-    $sql = "SELECT `zid` FROM zwicherts Z INNER JOIN relation R ON R.zid=Z.zid";
+    $sql = "SELECT Z.zid FROM zwicherts Z INNER JOIN relation R ON R.zid=Z.zid";
     $zids = mysqli_fetch_array(getSQLQuery($sql));
-    echo var_dump($zids);
         for ($i = 0; $i < $allposts[0]; $i++) {
         $zid = $zids[$i];
         $sql = "SELECT * FROM zwicherts WHERE zid = $zid";
@@ -97,10 +97,13 @@ function content_from($_uid)
 }
 function content_liked($_uid)
 {
-    $sql = "SELECT COUNT(*) FROM zwicherts";
-    $allposts = mysqli_fetch_array(getSQLQuery($sql))[0];
-    for ($i = 0; $i < $allposts; $i++) {
-        $zid = $i + 1;
+   
+    $sql = "SELECT COUNT(*) FROM zwicherts Z INNER JOIN likes L ON L.zid=Z.zid";
+    $allposts = mysqli_fetch_array(getSQLQuery($sql));
+    $sql = "SELECT Z.zid FROM zwicherts Z INNER JOIN likes L ON L.zid=Z.zid";
+    $zids = mysqli_fetch_array(getSQLQuery($sql));
+        for ($i = 0; $i < $allposts[0]; $i++) {
+        $zid = $zids[$i];
         $sql = "SELECT * FROM zwicherts WHERE zid = $zid";
         $zwichercontent = mysqli_fetch_array(getSQLQuery($sql));
         $sql = "SELECT uid FROM relation WHERE zid = $zid";
