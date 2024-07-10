@@ -51,6 +51,23 @@ function post_button()
         <div class="button_text"><a href="./post.php">+Post</a></div>
     </div>
 <?php }
+function like_function(){
+    if (isset($_SESSION['uid'])&&isset($_POST["like"])) {
+        $uid = $_SESSION['uid'];
+        $zid = $_POST['zid'];
+    
+        $sql_check = "SELECT * FROM likes WHERE uid = $uid AND zid = $zid";
+        $result = getSQLQuery($sql_check);
+        if ($result->num_rows == 0) {
+            $sql = "INSERT INTO likes (uid, zid) VALUES ($uid, $zid)";
+            getSQLQuery($sql);
+        }else{
+            $sql = "DELETE FROM likes WHERE uid = $uid AND zid = $zid";
+            getSQLQuery($sql);
+        }
+        $_POST["like"]=null;
+    }
+}
 function zwicher($uid, $zid, $content, $media)//Veljko
 {
     $user = getUserName($uid);
@@ -108,9 +125,9 @@ function content()//Veljko
 }
 function content_from($_uid)//Veljko
 {
-    $sql = "SELECT COUNT(*) FROM zwicherts Z INNER JOIN relation R ON R.zid=Z.zid";
+    $sql = "SELECT COUNT(*) FROM zwicherts";
     $allposts = mysqli_fetch_array(getSQLQuery($sql));
-    $sql = "SELECT Z.zid FROM zwicherts Z INNER JOIN relation R ON R.zid=Z.zid";
+    $sql = "SELECT zid FROM zwicherts WHERE uid=$_uid";
     $zids = mysqli_fetch_array(getSQLQuery($sql));
     for ($i = 0; $i < $allposts[0]; $i++) {
         $zid = $zids[$i];
