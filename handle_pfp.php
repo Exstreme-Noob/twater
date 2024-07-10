@@ -2,8 +2,8 @@
 <body>
   
 <a href="index.php">Startseite</a>
-<br><?php
-session_start();//Veljko von W3schools.com kopiert
+<br><?php // von W3schools.com kopiert
+session_start();//Veljko
 $target_dir = "pfp/";
 $target_file = $target_dir . basename($_FILES["pfp"]["name"]);
 $uploadOk = 1;

@@ -23,7 +23,9 @@ if ($_SESSION['user'] != null) {
             <img src="<?php echo getuserpfp($_SESSION['uid']); ?>" alt="error">
             <?php echo $_SESSION['user']?>
             <div class="profile_uid">
-            <?php echo "id:".$_SESSION['uid'] ?></div>
+            <?php echo "id:".$_SESSION['uid'] ;
+            
+    post_button();?></div>
             <div class="eddit_profile_button"><a href="eddit_profile.php">Edit Profile</a></div>
         </div>
         <?php content_from($_SESSION["uid"]); ?>

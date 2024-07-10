@@ -1,16 +1,4 @@
-<body>
-    <?php include "./php/functions.php";//ChatGPT(leander)
+<?php include "./php/functions.php";//Veljko
     session_start();
-    if (isset($_SESSION["user"])) {
-        $_SESSION["user"] = null;
-        $_SESSION["uid"] = null;
-        header('Location:index.php');
-    } else {
-        $_SESSION['user'] = null;
-        $_SESSION["uid"] = null;
-        header('Location:index.php');
-    }
-    ?>  
-</body>
-
-</html>
+    session_destroy();
+    header("Location: index.php");

@@ -17,10 +17,10 @@
             <input class="register_input" id="post_text" name="post_text" required type="text" /><br>
             <div class="pfp_uplad">
                 <label for="post">Post Image:</label><br>
-                <input class="pfp_input" id="post" name="post" type="file" /><br>
+                <input class="pfp_input" id="media" name="media" type="file" /><br>
             </div>
             <div class="register_buttons">
-                <input class="register_send" name="post" type="submit" value="Post" />
+                <input class="register_send" name="submit" type="submit" value="Post" />
                 </divclass>
         </form>
     </dvi>

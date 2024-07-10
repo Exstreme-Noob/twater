@@ -15,10 +15,10 @@
     session_start();//Veljko
     like_function();
     if(!isset($_SESSION["uid"])){$_SESSION["uid"]=null;}
-    topbar($_SESSION["uid"]);?>
+    topbar($_SESSION["uid"]);
+    post_button();?>
     <div class="content">
     <?php
-    post_button();
     content();
     ?>  
     </div>
