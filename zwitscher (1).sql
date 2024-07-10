@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
---
+-- von Veljko
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2024 at 07:48 AM
+-- Generation Time: Jul 10, 2024 at 10:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,23 +32,13 @@ CREATE TABLE `likes` (
   `zid` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `relation`
+-- Dumping data for table `likes`
 --
 
-CREATE TABLE `relation` (
-  `uid` int(11) NOT NULL,
-  `zid` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `relation`
---
-
-INSERT INTO `relation` (`uid`, `zid`) VALUES
-(1, 1);
+INSERT INTO `likes` (`uid`, `zid`) VALUES
+(1, 1),
+(1, 5);
 
 -- --------------------------------------------------------
 
@@ -68,7 +58,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `name`, `email`, `password`) VALUES
-(1, 'Liehnhard', 'thomas@hamsmail.de', 'thomas');
+(1, 'christus', 'thomas@hamsmail.de', 'thomas');
 
 -- --------------------------------------------------------
 
@@ -78,6 +68,7 @@ INSERT INTO `users` (`uid`, `name`, `email`, `password`) VALUES
 
 CREATE TABLE `zwicherts` (
   `zid` bigint(20) NOT NULL,
+  `uid` int(11) NOT NULL,
   `text` text NOT NULL,
   `media` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -86,8 +77,9 @@ CREATE TABLE `zwicherts` (
 -- Dumping data for table `zwicherts`
 --
 
-INSERT INTO `zwicherts` (`zid`, `text`, `media`) VALUES
-(1, 'Legalize nuclear bombs', './postmedia/1.gif');
+INSERT INTO `zwicherts` (`zid`, `uid`, `text`, `media`) VALUES
+(1, 1, 'Legalize nuclear bombs', './postmedia/1.gif'),
+(5, 1, 'halo', '');
 
 --
 -- Indexes for dumped tables
@@ -119,7 +111,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `zwicherts`
 --
 ALTER TABLE `zwicherts`
-  MODIFY `zid` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `zid` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
