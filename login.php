@@ -11,7 +11,7 @@
 <body>
     <a href="index.php" >Startseite</a>
     <?php include "./php/functions.php";
-    session_start();
+    session_start();//Veljko
     topbar($_SESSION["uid"]);
     ?>  
      <div class ="login">

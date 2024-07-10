@@ -1,5 +1,5 @@
 <?php
-function connectDB(){
+function connectDB(){//ChatGPT(leander)
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -12,7 +12,7 @@ function connectDB(){
     return $conn;
 }
 
-function getSQLQuery($sql, $params = [])
+function getSQLQuery($sql, $params = [])//ChatGPT(leander)
 {
     $conn = connectDB();
     $stmt = $conn->prepare($sql);
@@ -28,43 +28,43 @@ function getSQLQuery($sql, $params = [])
     return $result;
 }
 
-function insertUser($user, $email, $password)
+function insertUser($user, $email, $password)//ChatGPT(leander)
 {
     $sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
     $params = ['sss', $user, $email, $password];
     return getSQLQuery($sql, $params);
 }
 
-function getUser($user)
+function getUser($user)//ChatGPT(leander)
 {
     $sql = "SELECT * FROM users WHERE name = ?";
     return getSQLQuery($sql, ['s', $user]);
 }
 
-function getEmail($email)
+function getEmail($email)//ChatGPT(leander)
 {
     $sql = "SELECT * FROM users WHERE email = ?";
     return getSQLQuery($sql, ['s', $email]);
 }
 
-function getPassword($email)
+function getPassword($email)//ChatGPT(leander)
 {
     $sql = "SELECT password FROM users WHERE email = ?";
     return getSQLQuery($sql, ['s', $email]);
 }
 
-function getAllUser()
+function getAllUser()//ChatGPT(leander)
 {
     $sql = "SELECT * FROM users";
     return getSQLQuery($sql);
 }
 
-function getUserName($uid)
+function getUserName($uid)//Veljko
 {
     $sql = "SELECT name FROM users WHERE uid = ?";
     return mysqli_fetch_array(getSQLQuery($sql,['s', $uid]))[0];
 }
-function getUserID($email)
+function getUserID($email)//Veljko
 {
     $sql = "SELECT uid FROM users WHERE email = ?";
     return mysqli_fetch_array(getSQLQuery($sql,['s', $email]))[0];

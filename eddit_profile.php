@@ -11,7 +11,7 @@
 <body>
     <?php
     include "./php/functions.php";
-    session_start();
+    session_start();//Veljko
     topbar($_SESSION['uid']);
     ?>
     <br>

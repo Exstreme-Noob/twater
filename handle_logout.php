@@ -1,5 +1,5 @@
 <body>
-    <?php include "./php/functions.php";
+    <?php include "./php/functions.php";//ChatGPT(leander)
     session_start();
     if (isset($_SESSION["user"])) {
         $_SESSION["user"] = null;

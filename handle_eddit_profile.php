@@ -1,7 +1,7 @@
 <body>
     <a href="index.php">Startseite</a>
     <?php include "./php/functions.php";
-    session_start();
+    session_start();//Veljko
     $uid = $_SESSION["uid"];
     if ($_POST["name"]!=NULL) {
         $name = $_POST["name"];

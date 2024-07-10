@@ -1,3 +1,4 @@
+/*Veljko*/
 :root {
 
     --foreground: rgb(100, 100, 100);
@@ -104,6 +105,9 @@ body {
     margin: 0.5vw;
     margin-top: 0.3vw;
     margin-right: 1vw;
+}
+.pfp_uplad{
+    background-color: inherit;
 }
 
 .header_pfp img {

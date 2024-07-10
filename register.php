@@ -10,7 +10,7 @@
 
 <body>
     <?php include "./php/functions.php";
-    session_start(); 
+    session_start(); //Veljko
     topbar($_SESSION["user"]);;?>
     <dvi class ="register">
         <form action="./handle_register.php" method="post">

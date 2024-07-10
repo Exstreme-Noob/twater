@@ -1,6 +1,21 @@
 <?php
 include "db.php";
-function topbar($user = null)
+if (isset($_SESSION['uid']) && isset($_POST["like"])) {
+    $uid = $_SESSION['uid'];
+    $zid = $_POST['zid'];
+
+    $sql_check = "SELECT * FROM likes WHERE uid = $uid AND zid = $zid";
+    $result = getSQLQuery($sql_check);
+
+    if ($result->num_rows == 0) {
+        $sql = "INSERT INTO likes (uid, zid) VALUES ($uid, $zid)";
+        getSQLQuery($sql);
+    } else {
+        $sql = "DELETE FROM likes WHERE uid = $uid AND zid = $zid";
+        getSQLQuery($sql);
+    }
+}
+function topbar($user = null)//Veljko
 { ?>
     <div class="header">
         <div class="header_left">
@@ -30,7 +45,13 @@ function topbar($user = null)
     <br>
     <?php
 }
-function zwicher($uid, $content, $media)
+function post_button()
+{ ?>
+    <div class="post_buton">
+        <div class="button_text"><a href="./post.php">+Post</a></div>
+    </div>
+<?php }
+function zwicher($uid, $zid, $content, $media)//Veljko
 {
     $user = getUserName($uid);
     if ($user != null) {
@@ -46,6 +67,14 @@ function zwicher($uid, $content, $media)
                 <p><?php echo $content ?></p>
                 <?php if ($media != null) { ?><img src="<?php echo $media ?>"></img><?php } ?>
             </div>
+            <div class="like_post"><?php
+            echo countlikes($zid);
+            if (isset($_SESSION["user"])) { ?>
+                    <form action="#" method="post">
+                        <input class="like_send_zid" name="zid" type="hidden" value="<?php echo $zid ?>" />
+                        <input class="like_send" name="like" type="submit" value="Like" />
+                    </form><?php } ?>
+            </div>
         </div>
     <?php } else {
         ?>
@@ -53,7 +82,7 @@ function zwicher($uid, $content, $media)
         <?php
     }
 }
-function getuserpfp($uid)
+function getuserpfp($uid)//Veljko
 {
     if (file_exists("./pfp/$uid.gif")) {
         return "./pfp/$uid.gif";
@@ -61,7 +90,7 @@ function getuserpfp($uid)
         return "./img/defult_pfp.gif";
     }
 }
-function content()
+function content()//Veljko
 {
     $sql = "SELECT COUNT(*) FROM zwicherts";
     $allposts = mysqli_fetch_array(getSQLQuery($sql))[0];
@@ -74,16 +103,16 @@ function content()
         $content = $zwichercontent["text"];
         $media = $zwichercontent["media"];
         $uid = &$relation["uid"];
-        zwicher($uid, $content, $media);
+        zwicher($uid, $zid, $content, $media);
     }
 }
-function content_from($_uid)
+function content_from($_uid)//Veljko
 {
     $sql = "SELECT COUNT(*) FROM zwicherts Z INNER JOIN relation R ON R.zid=Z.zid";
     $allposts = mysqli_fetch_array(getSQLQuery($sql));
     $sql = "SELECT Z.zid FROM zwicherts Z INNER JOIN relation R ON R.zid=Z.zid";
     $zids = mysqli_fetch_array(getSQLQuery($sql));
-        for ($i = 0; $i < $allposts[0]; $i++) {
+    for ($i = 0; $i < $allposts[0]; $i++) {
         $zid = $zids[$i];
         $sql = "SELECT * FROM zwicherts WHERE zid = $zid";
         $zwichercontent = mysqli_fetch_array(getSQLQuery($sql));
@@ -92,17 +121,17 @@ function content_from($_uid)
         $content = $zwichercontent["text"];
         $media = $zwichercontent["media"];
         $uid = &$relation["uid"];
-        zwicher($uid, $content, $media);
+        zwicher($uid, $zid, $content, $media);
     }
 }
-function content_liked($_uid)
+function content_liked($_uid)//Veljko
 {
-   
+
     $sql = "SELECT COUNT(*) FROM zwicherts Z INNER JOIN likes L ON L.zid=Z.zid";
     $allposts = mysqli_fetch_array(getSQLQuery($sql));
     $sql = "SELECT Z.zid FROM zwicherts Z INNER JOIN likes L ON L.zid=Z.zid";
     $zids = mysqli_fetch_array(getSQLQuery($sql));
-        for ($i = 0; $i < $allposts[0]; $i++) {
+    for ($i = 0; $i < $allposts[0]; $i++) {
         $zid = $zids[$i];
         $sql = "SELECT * FROM zwicherts WHERE zid = $zid";
         $zwichercontent = mysqli_fetch_array(getSQLQuery($sql));
@@ -111,6 +140,21 @@ function content_liked($_uid)
         $content = $zwichercontent["text"];
         $media = $zwichercontent["media"];
         $uid = &$relation["uid"];
-        zwicher($uid, $content, $media);
+        zwicher($uid, $zid, $content, $media);
     }
+}
+function like($zid, $uid)
+{//Veljko
+    $sql = "INSERT INTO users ($zid,$uid);";
+    return getSQLQuery($sql);
+}
+function isLiked($zid, $uid)
+{//Veljko
+    $sql = "SELECT uid FROM likes WHERE uid=$uid && zid=$zid;";
+    return getSQLQuery($sql)->num_rows;
+}
+function countlikes($zid)
+{
+    $sql = "SELECT Count(*) FROM likes WHERE zid=$zid;";
+    return mysqli_fetch_array(getSQLQuery($sql))[0];
 }
