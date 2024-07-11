@@ -1,5 +1,5 @@
 <?php
-function connectDB(){//ChatGPT(leander)
+function connectDB(){//Veljko
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -12,7 +12,7 @@ function connectDB(){//ChatGPT(leander)
     return $conn;
 }
 
-function getSQLQuery($sql, $params = [])//ChatGPT(leander)
+function getSQLQuery($sql, $params = [])//Veljko
 {
     $conn = connectDB();
     $stmt = $conn->prepare($sql);
@@ -28,32 +28,32 @@ function getSQLQuery($sql, $params = [])//ChatGPT(leander)
     return $result;
 }
 
-function insertUser($user, $email, $password)//ChatGPT(leander)
+function insertUser($user, $email, $password)//Leander
 {
     $sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
     $params = ['sss', $user, $email, $password];
     return getSQLQuery($sql, $params);
 }
 
-function getUser($user)//ChatGPT(leander)
+function getUser($user)//Leander
 {
     $sql = "SELECT * FROM users WHERE name = ?";
     return getSQLQuery($sql, ['s', $user]);
 }
 
-function getEmail($email)//ChatGPT(leander)
+function getEmail($email)//Leander
 {
     $sql = "SELECT * FROM users WHERE email = ?";
     return getSQLQuery($sql, ['s', $email]);
 }
 
-function getPassword($email)//ChatGPT(leander)
+function getPassword($email)//Leander
 {
     $sql = "SELECT password FROM users WHERE email = ?";
     return getSQLQuery($sql, ['s', $email]);
 }
 
-function getAllUser()//ChatGPT(leander)
+function getAllUser()//Leander
 {
     $sql = "SELECT * FROM users";
     return getSQLQuery($sql);
